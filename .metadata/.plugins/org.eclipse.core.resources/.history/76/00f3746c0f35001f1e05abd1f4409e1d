@@ -1,0 +1,33 @@
+package com.min.app04.controller;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.min.app04.service.BookService;
+
+@Controller
+public class BookController {
+  
+  private BookService bookService;
+
+  @Autowired
+  public BookController(BookService bookService) {
+    super();
+    this.bookService = bookService;
+  }
+  
+  /* @ResponseBody : 메소드의 반환 값은 View 가 아니라 응답 데이터이다. */
+  @ResponseBody
+  
+  /* produces = "application/json" : 응답 데이터 타입은 JSON 이다. */
+  @RequestMapping(value = "/api/books", produces = "application/json")
+  public Map<String, Object> list() {
+    return bookService.getBookList();
+  }
+
+  
+}

@@ -1,0 +1,51 @@
+package com.min.app04.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.min.app04.dto.BookDTO;
+
+@Repository
+public class BookDAOImpl implements BookDAO {
+
+  // DB 대신 List 사용 (contactNo 는 index + 1 로 가정)
+  
+  private List<BookDTO> contacts;
+  
+  public BookDAOImpl() {
+    contacts = new ArrayList<>();
+    contacts.add(new BookDTO(1, "소나기", "황순원"));
+    contacts.add(new BookDTO(2, "태백산맥", "조정래"));
+    contacts.add(new BookDTO(3, "홍길동전", "허균"));
+    contacts.add(new BookDTO(4, "수학의정석", "홍성대"));
+    contacts.add(new BookDTO(5, "자바의정석", "남궁성"));    
+  }
+
+  @Override
+  public List<BookDTO> getBookList() {
+    return contacts;
+  }
+
+  @Override
+  public BookDTO getBookByNo(int contactNo) {
+    return contacts.get(contactNo - 1);
+  }
+
+  @Override
+  public int insertBook(BookDTO contact) {
+    return contacts.add(contact) ? 1 : 0;
+  }
+
+  @Override
+  public int updateBook(BookDTO contact) {
+    return contacts.set(contact.getBookNo() - 1, contact) != null ? 1 : 0;
+  }
+
+  @Override
+  public int deleteBook(int contactNo) {
+    return contacts.remove(contactNo - 1) != null ? 1 : 0;
+  }
+
+}

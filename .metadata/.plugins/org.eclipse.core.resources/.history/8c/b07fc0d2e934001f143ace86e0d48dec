@@ -1,0 +1,17 @@
+package com.min.app03.service;
+
+import java.util.List;
+
+import com.min.app03.dao.BlogDAO;
+
+public class BlogServiceImpl implements BlogService {
+  
+  private BlogDAO blogDAO;
+  
+  @Override
+  public List<BlogDTO> getBlogList() {
+    return blogDAO.getBlogList();
+    
+  }
+
+}

@@ -1,0 +1,51 @@
+package com.min.app04.dao;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Repository;
+
+import com.min.app04.dto.ContactDTO;
+
+@Repository
+public class ContactDAOImpl implements ContactDAO {
+
+  // DB 대신 List 사용 (contactNo 는 index + 1 로 가정)
+  
+  private List<ContactDTO> contacts;
+  
+  public ContactDAOImpl() {
+    contacts = new ArrayList<>();
+    contacts.add(new ContactDTO(1, "소나기", "황순원"));
+    contacts.add(new ContactDTO(2, "태백산맥", "조정래"));
+    contacts.add(new ContactDTO(3, "홍길동전", "허균"));
+    contacts.add(new ContactDTO(4, "수학의정석", "홍성대"));
+    contacts.add(new ContactDTO(5, "자바의정석", "남궁성"));    
+  }
+
+  @Override
+  public List<ContactDTO> getContactList() {
+    return contacts;
+  }
+
+  @Override
+  public ContactDTO getContactByNo(int contactNo) {
+    return contacts.get(contactNo - 1);
+  }
+
+  @Override
+  public int insertContact(ContactDTO contact) {
+    return contacts.add(contact) ? 1 : 0;
+  }
+
+  @Override
+  public int updateContact(ContactDTO contact) {
+    return contacts.set(contact.getContactNo() - 1, contact) != null ? 1 : 0;
+  }
+
+  @Override
+  public int deleteContact(int contactNo) {
+    return contacts.remove(contactNo - 1) != null ? 1 : 0;
+  }
+
+}

@@ -1,0 +1,21 @@
+package com.min.app02;
+
+import org.springframework.stereotype.Controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+@Controller
+public class MvcController3 {
+
+  /*
+   * Query String 방식의 요청 파라미터 처리하기
+   * 1. HttpServletRequest
+   * 2. @RequestParam
+   * 3. 커맨트 객체 (요청 파라미터를 필드로 가지고 있는 클래스 타입의 객체)
+   */
+  
+  public String param1(HttpServletRequest) {
+    
+  }
+  
+}

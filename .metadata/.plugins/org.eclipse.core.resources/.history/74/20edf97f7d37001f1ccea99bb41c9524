@@ -1,0 +1,11 @@
+package com.min.app05.dto;
+
+import java.util.Date;
+
+public class ContactDTO {
+  private int contactNo;
+  private String name;
+  private String email;
+  private String mobile;
+  private Date createdAt;
+}

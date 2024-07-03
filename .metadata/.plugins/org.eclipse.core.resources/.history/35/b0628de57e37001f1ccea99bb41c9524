@@ -1,0 +1,42 @@
+package com.min.app05.dao;
+
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.min.app05.dto.ContactDTO;
+
+@Component
+public class ContactDAOImpl implements ContactDAO {
+
+  @Override
+  public List<ContactDTO> getContactList() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public ContactDTO getContactByNo(int contactNo) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public int removeContact(int contactNo) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int registerContact(ContactDTO contact) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int modifyContact(ContactDTO contact) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+}

@@ -1,0 +1,8 @@
+INDEX VERSION 1.134+C:\GREEN_JAVA\springstudy\.metadata\.plugins\org.eclipse.jdt.core
+1807629196.index
+2731257003.index
+3212632318.index
+1106140276.index
+3639021006.index
+2441454698.index
+1865797976.index

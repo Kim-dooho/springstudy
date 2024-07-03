@@ -1,0 +1,65 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib uri="jakarta.tags.core" prefix="c"%>
+<%@ taglib uri="jakarta.tags.fmt" prefix="fmt"%>
+<c:set var="contextPath" value="<%=request.getContextPath()%>"/>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insert title here</title>
+</head>
+<%-- 
+<body>
+
+  <div>
+    <div>순번:     <input value="${contact.contactNo}" /></div>
+    <div>이름:     <input value="${contact.name}" />     </div>
+    <div>이메일:   <input value="${contact.email}" />    </div>
+    <div>전화번호: <input value="${contact.mobile}" />   </div>
+  </div>
+   --%>
+<body>
+  <div>
+    <form id="register-form" action="${contextPath}/modify.do" method="post">
+      <div><input type="text" name="contactNo" id="contactNo" value="${contact.contactNo}"></div>
+      <div><input type="text" name="name" id="name" value="${contact.name}"></div>
+      <div><input type="text" name="email" id="email" value="${contact.email}"></div>
+      <div><input type="text" name="mobile" id="mobile" value="${contact.mobile}"></div>
+      <div><button type="submit">등록하기</button></div>
+      
+      <div>
+        <a href="${contextPath}/list.do">목록</a>
+        <a href="${contextPath}/modify.do?contactNo=${contact.contactNo}">수정</a>
+        <a href="javascript:deleteContact(${contact.contactNo})">삭제</a>
+      </div>
+  
+    </form>
+  </div>
+  <script>
+    const registerForm = document.getElementById('register-form');
+    registerForm.addEventListener('submit', (evt) => {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const mobile = document.getElementById('mobile').value;
+      if (!name || !email || !mobile) {
+        alert('모든 항목을 입력해주세요.');
+        evt.preventDefault();
+      }
+    });
+  </script>
+
+  
+  <script>
+    function deleteContact(contactNo) {
+      if (confirm('정말 삭제하시겠습니까?')) {
+        location.href = '${contextPath}/remove.do?contactNo=' + contactNo;
+      }
+    }
+  </script>
+</body>
+  <!-- 
+</body>
+ -->
+</html>

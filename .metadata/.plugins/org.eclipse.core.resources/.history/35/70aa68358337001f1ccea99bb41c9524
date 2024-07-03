@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?> <!-- 테이블마다 매퍼 하나가 나온다 -->
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.min.app05.dao.ContactMapper"> <!-- namespace = 매퍼의 이름 -->
+
+  <select id="getContactByNo"></select>
+
+</mapper>

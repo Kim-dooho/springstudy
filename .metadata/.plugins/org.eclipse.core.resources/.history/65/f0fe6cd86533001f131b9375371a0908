@@ -1,0 +1,68 @@
+package com.min.app01.ex03;
+
+import java.time.Instant;
+import java.util.Date;
+
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.AbstractApplicationContext;
+
+// @ComponentScan : @Component 가 저장된 패키지를 등록
+@ComponentScan(basePackages = {"com.min.app01.ex03"}) // ex03 은 생략 가능
+
+// @Configuration : Bean 을 만드는 클래스 (Bean 설정에 관련된 클래스)
+
+@Configuration
+
+public class AppConfig {
+  
+  /* 메소드 == Bean */
+  
+  /*
+   * 반환타입 : Bean 의 타입 ( <bean class""> )
+   * 메소드명 : Bean 의 이름 ( <bean id="">   )
+   */
+  
+  @Bean
+  Date today() {
+    return Date.from(Instant.now());
+  }
+  
+  @Bean
+  Calculator calculator1() {
+
+    AbstractApplicationContext ctx = new AnnotationConfigApplicationContext();
+    
+    
+    Calculator calculator = new Calculator();
+    calculator.setMaker("samsung");
+    calculator.setPrice(100);
+    calculator.setAdder(ctx.getBean("adder", Adder.class));
+    calculator.setSubtractor(ctx.getBean("subtractor", Subtractor.class));
+    calculator.setBuide(today());
+    
+    ctx.close();
+    
+    return calculator;
+
+  }
+  
+  @Bean
+  Calculator calculator2() {
+    
+    AbstractApplicationContext ctx = new AnnotationConfigApplicationContext();
+    
+    Adder adder = ctx.getBean("adder", Adder.class);
+    Subtractor subtractor = ctx.getBean("subtractor", Subtractor.class);
+    
+    return new Calculator("LG"
+                        , 200
+                        , adder
+                        , subtractor
+                        , today());
+    
+  }
+
+}

@@ -1,0 +1,24 @@
+package com.min.app03.dao;
+
+import java.util.Arrays;
+import java.util.List;
+
+import com.min.app03.dto.BbsDTO;
+
+public class BlogDAOImpl implements BbsDAO {
+
+  List<BbsDTO> bbsList = Arrays.asList(
+
+      );
+  
+  @Override
+  public List<BbsDTO> getBbsList() {
+    return bbsList;
+  }
+
+  @Override
+  public BbsDTO getBbsByNo(int bbsNo) {
+    return bbsList.get(bbsNo - 1);
+  }
+
+}

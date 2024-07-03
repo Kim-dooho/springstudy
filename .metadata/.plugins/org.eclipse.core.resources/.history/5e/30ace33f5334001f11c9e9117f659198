@@ -1,0 +1,6 @@
+package com.min.app03.dto;
+
+public class BbsDTO {
+  private String title;
+  private String contents;
+}

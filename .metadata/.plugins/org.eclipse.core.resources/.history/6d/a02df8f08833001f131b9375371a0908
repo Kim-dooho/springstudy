@@ -1,0 +1,29 @@
+package com.min.app02;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Controller;
+
+import jakarta.servlet.http.HttpServletRequest;
+
+@Controller
+public class MvcController3 {
+
+  /*
+   * Query String 방식의 요청 파라미터 처리하기
+   * 1. HttpServletRequest
+   * 2. @RequestParam
+   * 3. 커맨트 객체 (요청 파라미터를 필드로 가지고 있는 클래스 타입의 객체)
+   */
+  
+  public String param1(HttpServletRequest request) {
+    
+    // 요청 파라미터 page (디폴트 1)
+    Optional<String> optPage = Optional.ofNullable(request.getParameter("page"));
+    int page = Integer.parseInt(optPage.orElse("1"));
+    
+    // 요청 파라미터 sort (디폴트 sort)
+    
+  }
+  
+}

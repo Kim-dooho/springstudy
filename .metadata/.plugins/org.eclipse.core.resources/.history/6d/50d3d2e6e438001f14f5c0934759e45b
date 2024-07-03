@@ -1,0 +1,18 @@
+package com.min.app06.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Controller
+public class MvcController {
+  
+  @RequestMapping("/")
+  public String main() {
+    log.debug("/main.do");
+    return "main";
+  }
+
+}

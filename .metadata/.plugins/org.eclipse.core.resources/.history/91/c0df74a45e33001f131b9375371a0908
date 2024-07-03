@@ -1,0 +1,41 @@
+package com.min.app01.ex02;
+
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
+public class CalculatorEx {
+
+  public static void main(String[] args) {
+    
+    // Spring Container 에 있는 Bean 처리       : ApplicationContext
+    // close() 처리가 가능한 ApplicationContext : AbstractApplicationContext
+    // XML 파일로 만든 Bean 처리                : GenericXmlApplicationContext
+    
+    AbstractApplicationContext ctx = new GenericXmlApplicationContext("com/min/app01/ex01/app-context.xml");
+    
+    // Adder
+    Adder adder = ctx.getBean("adder", Adder.class);
+    adder.add(15, 10);
+     
+    // Subtractor
+    Subtractor subtractor = (Subtractor)ctx.getBean("subtractor");
+    subtractor.subtract(15, 10);
+    
+    
+    
+    // 삼성 출력
+    Calculator calculator1 = ctx.getBean("calculator1", Calculator.class);
+    
+    System.out.println(calculator1.getMaker());
+    System.out.println(calculator1.getPrice());
+    
+    // LG 출력
+    Calculator calculator2 = ctx.getBean("calculator2", Calculator.class);
+    
+    System.out.println(calculator2.getMaker() + ", " + calculator2.getPrice());
+    
+    ctx.close();
+
+  }
+
+}

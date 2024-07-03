@@ -1,0 +1,13 @@
+package com.min.app04.dao;
+
+import java.util.List;
+
+import com.min.app04.dto.BookDTO;
+
+public interface BookDAO {
+  List<BookDTO> getBookList();
+  BookDTO getBookByNo(int contactNo);
+  int insertBook(BookDTO contact);
+  int updateBook(BookDTO contact);
+  int deleteBook(int contactNo);
+}

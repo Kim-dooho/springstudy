@@ -1,0 +1,31 @@
+package com.min.app02;
+
+import org.springframework.stereotype.Controller;
+
+// @Controller : 컨트롤러로 등록하기
+
+@Controller
+public class MvcController1 {
+
+  /* 요청 및 응답 == 메소드 */
+  
+  /*
+   * 1. 반환타입
+   *   1) String       : 응답 JSP 의 경로와 이름을 반환한다.
+   *   2) void         : 요청 주소를 응답 JSP 의 경로와 이름으로 인식한다.
+   *   3) ModelAndView : 응답 JSP 의 경로와 이름과 JSP 로 보낼 데이터를 저장하는 객체이다.
+   *   
+   * 2. 메소드명
+   *   의미없다.
+   *   
+   * 3. 매개변수
+   *   1) 요청과 응답을 처리하기 위한 각종 클래스가 사용된다.
+   *   2) 주요 매개변수
+   *     (1) HttpServletRequest
+   *     (2) HttpServletResponse
+   *     (3) Model
+   *     (4) HttpSession
+   *     (5) redirectAttributes
+   */
+  
+}

@@ -1,0 +1,30 @@
+package com.min.app02.controller;
+
+import java.util.Optional;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@RequestMapping("/app")
+@Controller
+public class MvcController4 {
+
+  /* Path Variable : 경로에 포함된 변수 */
+  
+  @RequestMapping("/users/{id}")
+  public String users(@PathVariable(value = "id") int userId) {
+    
+    System.out.println(userId);
+    
+    return "index";
+    
+  }
+  
+  @RequestMapping("/members/{id}")
+  public String members(@PathVariable(value = "id", required = false) Optional<String> opt) {
+    int memberId = Integer.parseInt(opt.orElse("1"));
+    System.out.println(memberId);
+    return "index";
+  }
+}

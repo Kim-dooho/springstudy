@@ -1,0 +1,17 @@
+package com.min.app06.aspect;
+
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@Aspect
+public class LoggingAspect {
+
+  /* PointCut 표현식 (어떤 클래스의 어떤 메소드에서 적용할 것인가?) 
+   *      execution(반환타입 클래스, 메소드(매개변수) */
+  // @Pointcut(value = "반환타입 클래스명.메소드(매개변수)")
+  @Pointcut(value = "execution(* com.min.app06.controller.ContactController.wp_*(..))")  // .. <- 매개변수의 타입과 갯수도 상관 없다
+  
+}

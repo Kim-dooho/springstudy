@@ -1,0 +1,5 @@
+package com.min.app05.dao;
+
+public interface ContactDAO {
+
+}

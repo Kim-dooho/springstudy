@@ -1,0 +1,31 @@
+package com.min.app05;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+import org.mybatis.spring.SqlSessionTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.ContextConfiguration;
+
+import com.min.app05.dao.ContactDAO;
+
+/*
+ * 
+ */
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/spring/root-context.xml", "file:src/main/webapp/WEB-INF/spring/appServlet/servlet-context.xml"})
+class JUnitJupiterTestCase {
+
+  private ContactDAO contactDAO;
+  
+  @Autowired
+  public JUnitJupiterTestCase(ContactDAO contactDAO) {
+    super();
+    this.contactDAO = contactDAO;
+  }
+
+  @Test
+  void test() {
+    contactDAO.getContactByNo(0);
+  }
+
+}

@@ -1,0 +1,17 @@
+package com.min.app03.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+
+import com.min.app03.service.BbsService;
+
+@Controller
+public class BbsController {
+
+  /* 컨트롤러는 서비스 객체를 필드로 선언하고 사용한다. */
+  
+  @Autowired 
+  private BbsService bbsService;
+  
+  
+}

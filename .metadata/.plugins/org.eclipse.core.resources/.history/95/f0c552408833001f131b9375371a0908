@@ -1,0 +1,18 @@
+package com.min.app02;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class MvcController3 {
+
+  /*
+   * Query String 방식의 요청 파라미터 처리하기
+   * 1. HttpServletRequest
+   * 2. @RequestParam
+   */
+  
+  public String param1() {
+    
+  }
+  
+}

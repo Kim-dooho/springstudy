@@ -1,0 +1,30 @@
+package com.min.app03.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.min.app03.dao.BlogDAO;
+import com.min.app03.dto.BlogDTO;
+import com.min.app03.utils.PageUtils;
+
+
+public class BlogServiceImpl implements BlogService {
+  
+  @Autowired
+  private BlogDAO blogDAO;
+  private PageUtils pageUtils;
+  
+  @Override
+  public List<BlogDTO> getBlogList() {
+    return blogDAO.getBlogList();
+    
+  }
+
+  @Override
+  public BlogDTO getBlogByNo(int BlogNo) {
+    return blogDAO.getBlogByNo(BlogNo);
+    
+  }
+  
+}

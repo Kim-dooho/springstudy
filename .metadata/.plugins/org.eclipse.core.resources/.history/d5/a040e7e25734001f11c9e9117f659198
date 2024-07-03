@@ -1,0 +1,21 @@
+package com.min.app03.service;
+
+import java.util.List;
+
+import com.min.app03.dto.BbsDTO;
+
+public class BbsServiceImpl implements BbsService {
+
+  @Override
+  public List<BbsDTO> getBbsList() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public BbsDTO getBbsByNo(int BbsNo) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+}

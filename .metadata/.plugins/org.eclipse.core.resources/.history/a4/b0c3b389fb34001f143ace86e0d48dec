@@ -1,0 +1,7 @@
+package com.min.app04.dto;
+
+public class BookDTO {
+  private int bkkoNo;
+  private String title;
+  private String author;
+}

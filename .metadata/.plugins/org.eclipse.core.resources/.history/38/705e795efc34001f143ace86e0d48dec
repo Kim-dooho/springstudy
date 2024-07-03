@@ -1,0 +1,40 @@
+package com.min.app04.dao;
+
+import java.util.List;
+
+import com.min.app04.dto.BookDTO;
+
+
+public class BookDAOImlp implements BookDAO {
+
+  @Override
+  public List<BookDTO> getBookList() {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public BookDTO getBookByNo(int bookNo) {
+    // TODO Auto-generated method stub
+    return null;
+  }
+
+  @Override
+  public int insertBook(BookDTO book) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int updateBook(BookDTO book) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+  @Override
+  public int deleteBook(int bookNo) {
+    // TODO Auto-generated method stub
+    return 0;
+  }
+
+}

@@ -1,0 +1,18 @@
+package com.min.app02.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+@SessionAttributes(names = "memberVO") /* Model 에 memberVO 가 저장되면 HttpSession 에 같은 이름으로 저장하시오. */
+
+@Controller
+public class MvcController8 {
+
+  @RequestMapping("/member/login")
+  public String login(MemberVO member, @RequestParam String redirectURL) { // 타입으로 저장함, 첫글자를 소문자로(camel case) memberVO
+    
+  }
+  
+}

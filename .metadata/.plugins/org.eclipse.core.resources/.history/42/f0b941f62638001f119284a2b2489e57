@@ -1,0 +1,76 @@
+package com.min.app04.controller;
+
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.min.app04.dto.BookDTO;
+import com.min.app04.service.BookService;
+
+/* @RestController
+ *     모든 메소드가 @ResponseBody 를 가진다.  */
+// @RestController
+
+public class BookController2 {
+
+  private BookService contactService;
+
+  @Autowired
+  public BookController2(BookService contactService) {
+    super();
+    this.contactService = contactService;
+  }
+  
+  /* MediaType.APPLICATION_JSON_VALUE == "application/json" */
+  @GetMapping(value = {"/api/contacts", "/api/contacts.json"}, produces = MediaType.APPLICATION_JSON_VALUE)
+  public Map<String, Object> listJson() {
+    return Map.of("contacts", contactService.getBookList());
+  }
+  
+  /* MediaType.APPLICATION_XML_VALUE == "application/xml" */
+  @GetMapping(value = "/api/contacts.xml", produces = MediaType.APPLICATION_XML_VALUE)
+  public Map<String, Object> listXml() {
+    return Map.of("contact", contactService.getBookList());
+  }
+  
+  @GetMapping(value = {"/api/contacts/{contactNo}", "/api/contacts.json/{contactNo}"}, produces = MediaType.APPLICATION_JSON_VALUE)
+  public Map<String, Object> detailJson(@PathVariable(name = "contactNo") int contactNo) {
+    return Map.of("contact", contactService.getBookByNo(contactNo));
+  }
+  
+  @GetMapping(value = "/api/contacts.xml/{contactNo}", produces = MediaType.APPLICATION_XML_VALUE)
+  public Map<String, Object> detailXml(@PathVariable int contactNo) {  // @PathVariable 의 name 생략 가능
+    return Map.of("contact", contactService.getBookByNo(contactNo));
+  }
+  
+  @PostMapping(value = "/api/contacts", produces = MediaType.APPLICATION_JSON_VALUE)
+  public Map<String, Object> insertBook(@RequestBody BookDTO contact) {
+    return Map.of("isSuccess", contactService.insertBook(contact) == 1
+                , "inserted", DateTimeFormatter.ofPattern("yyyy-MM-dd").format(LocalDate.now()));
+  }
+  
+  @PutMapping(value = "/api/contacts", produces = MediaType.APPLICATION_JSON_VALUE)
+  public Map<String, Object> updateBook(@RequestBody BookDTO contact) {
+    return Map.of("isSuccess", contactService.updateBook(contact) == 1
+                , "updated", new SimpleDateFormat("yyyy-MM-dd").format(System.currentTimeMillis()));
+  }
+  
+  @DeleteMapping(value = "/api/contacts/{contactNo}", produces = MediaType.APPLICATION_JSON_VALUE)
+  public Map<String, Object> deleteBook(@PathVariable int contactNo) {
+    return Map.of("isSuccess", contactService.deleteBook(contactNo) == 1
+                , "deleted", new SimpleDateFormat("y-MM-dd").format(new Date()));
+  }
+  
+}

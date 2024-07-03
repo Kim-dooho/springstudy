@@ -1,0 +1,35 @@
+package com.min.app02.controller;
+
+import java.util.Arrays;
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.min.app02.vo.NewsVO;
+
+@Controller
+public class MvcController5 {
+  
+  /*
+   * Model
+   * 
+   * 1. JSP 로 forward 할 때 전달할 데이터를 저장한다.
+   */
+
+  @RequestMapping(value = "/news/list")
+  public String list(Model model) {
+    
+    List<NewsVO> newsList = Arrays.asList(
+        new NewsVO("오늘은 목요일", 10)
+      , new NewsVO("오늘 무더위", 20)
+        );
+    
+    model.addAttribute("newsList", newsList);
+    
+    return "news/list"; /* /WEB-INF/views/  news/list  .jsp */
+    
+  }
+  
+}

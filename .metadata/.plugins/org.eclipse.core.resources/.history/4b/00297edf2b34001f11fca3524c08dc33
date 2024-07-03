@@ -1,0 +1,26 @@
+package com.min.app02.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+@Controller
+public class MvcController6 {
+
+  @RequestMapping("/blog/list")
+  public String list() {
+    return "blog/list";  /* forward 이동할 땐 JSP 경로 작성 : /WEB-INF/views/ + news/list + .jsp */
+  }
+  
+  @RequestMapping("/blog/register")
+  public String register(RedirectAttributes rttr) {
+    
+    int result = Math.random() < 0.7 ? 1 : 0;
+    
+    rttr.addFlashAttribute("insertResult", result > 0 ? "블로그 등록 성공" : "블로그 등록 실패");
+    
+    return "redirect:/blog/list"; /* redirect 이동할 땐 Mapping 작성 : "/blog/list" */
+    
+  }
+  
+}

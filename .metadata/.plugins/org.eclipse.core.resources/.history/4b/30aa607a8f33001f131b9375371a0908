@@ -1,0 +1,6 @@
+package com.min.app02.vo;
+
+public class PageVo {
+  private int page;
+  private String sort;
+}
