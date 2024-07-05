@@ -1,5 +1,0 @@
-package com.min.app03.service;
-
-public interface BbsService {
-
-}

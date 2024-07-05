@@ -2,6 +2,7 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="C:\GREEN_JAVA\springstudy\app05"/>
 			<item value="C:\GREEN_JAVA\springstudy\app03"/>
 			<item value="C:\GREEN_JAVA\springstudy\app02"/>
 			<item value="C:\GREEN_JAVA\springstudy\app01"/>
@@ -28,6 +29,8 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
+			<item value="com.min.app07"/>
+			<item value="com.min.app08"/>
 			<item value="com.min.app06"/>
 			<item value="com.min.app05"/>
 			<item value="com.min.app04"/>
@@ -37,6 +40,8 @@
 			<item value="com.min"/>
 		</list>
 		<list key="artifactId">
+			<item value="app07"/>
+			<item value="app08"/>
 			<item value="app06"/>
 			<item value="app05"/>
 			<item value="app04"/>

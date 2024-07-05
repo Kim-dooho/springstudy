@@ -8,18 +8,6 @@
  *                              contextPath()
  *                              GetContacts()
  *********************************************/
-/*
-DROP TABLE contact_t;
-CREATE TABLE contact_t (
- contact_no NUMBER NOT NULL PRIMARY KEY,
- NAME VARCHAR2(100 BYTE)NOT NULL,
- NAME VARCHAR2(100 BYTE),
- NAME VARCHAR2(100 BYTE),
- CREATE_AT DATE
- );
- DROP SEQUENCE contact_seq;
- CREATE SEQUENCE contact_seq;
-*/
 
 
 

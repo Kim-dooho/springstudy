@@ -27,10 +27,10 @@ import com.zaxxer.hikari.HikariDataSource;
 
 @Configuration
 @ComponentScan(basePackages = {
-    "com.min.app06.mapper"
+    "com.min.app08.mapper"
 })
 @MapperScan(basePackages = {
-    "com.min.app06.mapper"
+    "com.min.app08.mapper"
 })
 @EnableAspectJAutoProxy
 @EnableTransactionManagement
@@ -65,8 +65,8 @@ public class AppConfig {
   public SqlSessionFactory sqlSessionFactory() throws Exception {
     SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
     factoryBean.setDataSource(hikariDataSource());
-    factoryBean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:com/min/app06/mybatis/config/mybatis-config.xml"));
-    factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:com/min/app06/mybatis/mapper/*.xml"));
+    factoryBean.setConfigLocation(new PathMatchingResourcePatternResolver().getResource("classpath:com/min/app08/mybatis/config/mybatis-config.xml"));
+    factoryBean.setMapperLocations(new PathMatchingResourcePatternResolver().getResources("classpath:com/min/app08/mybatis/mapper/*.xml"));
     return factoryBean.getObject();
   }
   
@@ -99,7 +99,7 @@ public class AppConfig {
     
     // Pointcut
     AspectJExpressionPointcut pointcut = new AspectJExpressionPointcut();
-    pointcut.setExpression("execution(* com.min.app06.service.ContactServiceImpl.tx_*(..))");
+    pointcut.setExpression("execution(* com.min.app08.service.ContactServiceImpl.*(..))");
     
     return new DefaultPointcutAdvisor(pointcut, transactionInterceptor());
     
